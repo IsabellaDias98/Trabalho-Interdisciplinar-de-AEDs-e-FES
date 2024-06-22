@@ -4,14 +4,14 @@
 
 #define TEMP 100  // Define um tamanho padrão para strings
 
-// Define a estrutura do Funcionario com vários campos
-struct Funcionario {
+// Define a estrutura do Funcionario com vários campos usando typedef
+typedef struct {
   char codigo[TEMP];
   char nome[TEMP];
   char telefone[TEMP];
   double salario;
   char cargo[TEMP];
-};
+} Funcionario;
 
 // Função para limpar o buffer do stdin
 void limparBuffer() {
@@ -22,7 +22,7 @@ void limparBuffer() {
 // Função para adicionar um novo funcionário
 void adicionarFuncionario() {
   FILE *file;  // Declaração do ponteiro de arquivo
-  struct Funcionario info;  // Declaração da estrutura Funcionario
+  Funcionario info;  // Declaração da estrutura Funcionario
 
   // Leitura e armazenamento do código do funcionário
   printf("Digite o código do funcionário: ");
@@ -73,7 +73,7 @@ void adicionarFuncionario() {
   }
 
   // Escreve a estrutura do Funcionario no arquivo
-  if (fwrite(&info, sizeof(struct Funcionario), 1, file) != 1) {
+  if (fwrite(&info, sizeof(Funcionario), 1, file) != 1) {
     printf("Erro ao escrever no arquivo.\n");
   } else {
     printf("Funcionário adicionado com sucesso!\n");
