@@ -1,8 +1,28 @@
+/*******************************************************************************************************************************
+* FILENAME : HotelBooker.c
+* DESCRIPTION : Hotel management system for handling client, room, and stay records, including functions for registration, 
+*               search, and management of data.
+* PUBLIC FUNCTIONS :
+*          void cadastrarClientes(Cliente clientes[], int *numClientes)
+*          void cadastrarFuncionarios(Funcionario funcionarios[], int *numFuncionarios)
+*          void cadastrarQuartos(Quarto quartos[], int *numQuartos)
+*          void cadastrarEstadia(Estadia estadias[], int *numEstadias, Cliente clientes[], int numClientes, Quarto quartos[], int numQuartos)
+*          void baixaEstadia(Estadia estadias[], int *numEstadias, Quarto quartos[], int *numQuartos)
+*          void pesquisarClientes(Cliente clientes[], int *numClientes)
+*          void pesquisarFuncionarios(Funcionario funcionarios[], int *numFuncionarios)
+*          void totalEstadias(Estadia estadias[], int *numEstadias, Cliente clientes[], int *numClientes)
+* NOTES :
+*          This program manages hotel operations through file handling and interactive user options.
+*
+* AUTHOR : Isabella Dias
+* AUTHOR : Gustavo Viana
+* START DATE : 18 Jun 24
+*******************************************************************************************************************************/
+
 //Declaração da Bibliotecas Necessárias
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 //-------------------------------------
 
 //Estrutura Data
@@ -67,6 +87,7 @@ void pesquisarFuncionarios(Funcionario funcionarios[], int *numFuncionarios);
 void totalEstadias(Estadia estadias[], int *numEstadias, Cliente clientes[], int *numClientes);
 //----------------------------------------
 
+/*Cadastra Novos Clientes, Armazenando os Dados em Memória e em um Arquivo "Clientes.txt"*/
 //Função Cadastrar Clientes
 void cadastrarClientes(Cliente clientes[], int *numClientes) {
     Cliente novoCliente;
@@ -117,6 +138,8 @@ void cadastrarClientes(Cliente clientes[], int *numClientes) {
 }
 //----------------------------------------
 
+/*Carrega Dados dos Clientes a Partir do Arquivo "Clientes.txt", Incrementa um Array de Estruturas de Clientes
+e Atualiza o Contador de Clientes.*/
 //Carregar Arquivo Clientes
 void carregarClientes(Cliente clientes[], int *numClientes) {
 
@@ -151,6 +174,7 @@ void carregarClientes(Cliente clientes[], int *numClientes) {
 }
 //----------------------------------------
 
+/*Cadastra Novos Funcionários, Armazenando os Dados em Memória e em um Arquivo "Funcionarios.txt"*/
 //Função Cadastrar Funcionários
 void cadastrarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
     Funcionario novoFuncionario;
@@ -204,6 +228,8 @@ void cadastrarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
 }
 //----------------------------------------
 
+/*Carrega Dados dos Funcionários a Partir do Arquivo "Funcionarios.txt", Incrementa um Array de Estruturas de Funcionários
+e Atualiza o Contador de Funcionários.*/
 //Carregar Arquivo Funcionários
 void carregarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
 
@@ -238,6 +264,7 @@ void carregarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
 }
 //----------------------------------------
 
+/*Cadastra Novos Quartos, Armazenando os Dados em Memória e em um Arquivo "Quartos.txt"*/
 //Cadastrar Quartos
 void cadastrarQuartos(Quarto quartos[], int *numQuartos){
     Quarto novoQuarto;
@@ -281,6 +308,8 @@ void cadastrarQuartos(Quarto quartos[], int *numQuartos){
 }
 //----------------------------------------
 
+/*Carrega Dados dos Quartos a Partir do Arquivo "Quartos.txt", Incrementa um Array de Estruturas de Quartos
+e Atualiza o Contador de Quartos.*/
 //Carregar Arquivo Quartos
 void carregarQuartos(Quarto quartos[], int *numQuartos) {
 
@@ -313,6 +342,8 @@ void carregarQuartos(Quarto quartos[], int *numQuartos) {
 }
 //----------------------------------------
 
+/*Cadastra uma Nova Estadia Associando um Cliente a um Quarto, Registrando Datas de Entrada e Saída, Calculando a Quantidade 
+de Diárias e Atualizando Arquivos de Estadias e Quartos.*/
 //Cadastrar Estadia
 void cadastrarEstadia(Estadia estadias[], int *numEstadias, Cliente clientes[], int numClientes, Quarto quartos[], int numQuartos){
     Estadia novaEstadia;
@@ -370,8 +401,6 @@ void cadastrarEstadia(Estadia estadias[], int *numEstadias, Cliente clientes[], 
     (*numEstadias)++;
     novaEstadia.codigoEstadia = *numEstadias;
 
-    //
-
     //Armazenamento no Arquivo Estadia.txt
     FILE *file = fopen("Estadia.txt", "a");
     if (file == NULL) {
@@ -408,6 +437,8 @@ void cadastrarEstadia(Estadia estadias[], int *numEstadias, Cliente clientes[], 
 }
 //----------------------------------------
 
+/*Carrega Informações de Estadias Registradas a Partir de um Arquivo "Estadia.txt", Associando Clientes e Quartos às Estadias, 
+Calculando a Quantidade de Diárias com Base nas Datas de Entrada e Saída.*/
 //Carregar Arquivo Estadia
 void carregarEstadias(Estadia estadias[], int *numEstadias, Cliente clientes[], int numClientes, Quarto quartos[], int numQuartos) {
 
@@ -481,6 +512,8 @@ void printarEstadia(Estadia estadias[], int *numEstadias){
 }
 //----------------------------------------
 
+/*Realiza o Encerramento de uma Estadia, Atualiza o Status do Quarto para "Desocupado", Calcula o Valor Total da Estadia e Remove
+a Estadia do Registro.*/
 //Baixa em Alguma Estadia
 void baixaEstadia(Estadia estadias[], int *numEstadias, Quarto quartos[], int *numQuartos) {
     int codigoEstadia = 0;
@@ -578,6 +611,7 @@ void baixaEstadia(Estadia estadias[], int *numEstadias, Quarto quartos[], int *n
 }
 //----------------------------------------
 
+/*Pesquisa Clientes Cadastrados pelo Código ou Nome, Exibindo Suas Informações se Encontrados.*/
 //Pesquisar Clientes
 void pesquisarClientes(Cliente clientes[], int *numClientes) {
     int opcao;
@@ -624,6 +658,7 @@ void pesquisarClientes(Cliente clientes[], int *numClientes) {
 }
 //----------------------------------------
 
+/*Pesquisa Funcionários Cadastrados pelo Código ou Nome, Exibindo Suas Informações se Encontrados.*/
 //Pesquisar Funcionários
 void pesquisarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
     int opcao;
@@ -672,6 +707,7 @@ void pesquisarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
 }
 //----------------------------------------
 
+/*Calcula e Exibi Todas as Estadias Registradas para um Cliente Específico, Identificado pelo seu Código.*/
 //Total de Estadias de um Cliente
 void totalEstadias(Estadia estadias[], int *numEstadias, Cliente clientes[], int *numClientes){
     int codigoCliente = 0;
@@ -713,6 +749,8 @@ void totalEstadias(Estadia estadias[], int *numEstadias, Cliente clientes[], int
 }
 //----------------------------------------
 
+/*Oferece Opções para Registrar Novas Entradas, Realizar Baixas em Estadias e Buscar Informações de Clientes e Funcionários. 
+Utiliza Arquivos para Salvar Dados e Arrays para Gerenciar Informações.*/
 //Função Principal
 int main() {
     int opcao;
