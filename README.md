@@ -8,3 +8,7 @@ Disciplinas: Algoritmos e Estruturas de Dados I e Fundamentos da Engenharia de S
 
 Curso: Engenharia de Software
 
+Isabella Luiza Dias dos Santos
+
+Gustavo Viana dos Santos
+
