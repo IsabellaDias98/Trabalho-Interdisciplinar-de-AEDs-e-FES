@@ -1,0 +1,5 @@
+1,Joao Silva,123456789,Recepcionista,2500.00
+2,Maria Santos,123456789,Garcom,2000.00
+3,Bruno Pinheiro,123456789,Garcom,2000.00
+4,Mateus Bernardes,123456789,Gerente,5000.00
+5,Berenice Gomes,123456789,Auxiliar de Limpeza,1900.00
