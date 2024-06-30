@@ -97,6 +97,11 @@ void cadastrarClientes(Cliente clientes[], int *numClientes) {
     printf("\nDigite o Codigo do Cliente:\n");
     scanf(" %d", &novoCliente.codigoCliente);
 
+    if (novoCliente.codigoCliente < 0) {
+        printf("Erro! Codigo Invalido!\n");
+        return;
+    }
+
     //Garantir que o Código Não Está em Uso
     for (int i = 0; i < *numClientes; i++) {
         if (clientes[i].codigoCliente == novoCliente.codigoCliente) {
@@ -183,6 +188,11 @@ void cadastrarFuncionarios(Funcionario funcionarios[], int *numFuncionarios) {
     //Entrada do Código do Novo Funcionário
     printf("\nDigite o Codigo do Funcionario:\n");
     scanf(" %d", &novoFuncionario.codigoFuncionario);
+
+    if (novoFuncionario.codigoFuncionario < 0) {
+        printf("Erro! Codigo Invalido!\n");
+        return;
+    }
 
     //Garantir que o Código Não Está em Uso
     for (int i = 0; i < *numFuncionarios; i++) {
@@ -272,6 +282,11 @@ void cadastrarQuartos(Quarto quartos[], int *numQuartos){
     //Entrada do Número do Novo Quarto
     printf("\nDigite o Numero do Quarto:\n");
     scanf(" %d", &novoQuarto.numeroQuarto);
+
+    if (novoQuarto.numeroQuarto < 0) {
+        printf("Erro! Numero Invalido!\n");
+        return;
+    }
 
     //Garantir que o Número do Quarto Não Está em Uso
     for(int i = 0; i < *numQuartos; i++){
