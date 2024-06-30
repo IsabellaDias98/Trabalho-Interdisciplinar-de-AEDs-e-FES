@@ -790,8 +790,10 @@ int main() {
     //printarEstadia(estadias, &numEstadias);
 
     do {
-        printf("\n--------------------Hotel Descanso Garantido--------------------\n");
-        printf("\nSistema HotelBooker, O que Voce Deseja?\n");
+        printf("=====================================\n");
+        printf("=     HOTEL DESCANSO GARANTIDO      =\n");
+        printf("=====================================\n");
+        printf("Sistema HotelBooker, O que Voce Deseja?\n");
         printf("1 - Cadastrar Cliente\n");
         printf("2 - Cadastrar Funcionario\n");
         printf("3 - Cadastrar Quarto\n");
@@ -800,7 +802,9 @@ int main() {
         printf("6 - Pesquisar por Cliente\n");
         printf("7 - Pesquisar por Funcionario\n");
         printf("8 - Total de Estadias por Cliente\n");
-        printf("9 - Sair\n\nOp: ");
+        printf("9 - Sair\n");
+        printf("=====================================\n");
+        printf("Op: ");
         scanf(" %d", &opcao);
 
         switch (opcao) {
